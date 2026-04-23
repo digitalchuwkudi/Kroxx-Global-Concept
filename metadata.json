@@ -1,0 +1,7 @@
+{
+  "name": "Kroxx Gadgets",
+  "description": "A modern landing page for a gadget sales and repair shop.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
