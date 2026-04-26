@@ -3,10 +3,10 @@ import { motion, AnimatePresence } from 'motion/react';
 import { 
   Smartphone, Laptop, Battery, Wrench, ShieldCheck, 
   Cpu, Zap, Phone, MapPin, Clock, ArrowRight, Menu, X,
-  CheckCircle2, Star, CreditCard, CalendarDays, Mail, Sparkles, 
+  CheckCircle2, Star, CreditCard, CalendarDays, Calendar, Mail, Sparkles, 
   AlertCircle, HardDrive, PhoneCall, ArrowUp, ChevronDown, Quote,
   Facebook, Twitter, Instagram, Linkedin, MessageCircle, PenTool,
-  ShoppingCart
+  ShoppingCart, Bot, Send, ChevronRight
 } from 'lucide-react';
 import Chatbot from './Chatbot';
 
@@ -20,6 +20,7 @@ const BRAND = {
   hours: "Mon - Sat (9am - 8pm)",
   twitterUrl: "https://x.com/iam_Kizzykroxx",
   whatsappUrl: "https://wa.me/2349054650886",
+  googleMapsUrl: "https://maps.google.com/?q=Emab+Plaza+Wuse+2+Abuja",
 };
 
 // Global Icon Theme (One color)
@@ -29,6 +30,7 @@ const ICON_COLOR = "text-[#ffffff]";
 const SECTION_PADDING = "py-16 md:py-24";
 const BENTO_CARD = "bg-[#0b132b] rounded-3xl p-8 md:p-10"; // Dark cards on Red/Light backgrounds
 const BLUE_BG = "bg-[#2563eb]"; // Replacing cream with Blue
+const GRADIENT_BG = "bg-gradient-to-br from-[#0b132b] to-[#1e3a8a]";
 const DARK_BG = "bg-[#0b132b]";
 const LIGHT_BG = "bg-[#f8f9fa]";
 
@@ -40,13 +42,13 @@ const IconBox = ({ icon: Icon, className = "" }) => (
 
 const Logo = () => (
   <div className="flex items-center gap-3 select-none relative z-10">
-    <img src="https://i.ibb.co/Fqb7DbWQ/Screenshot-20251021-152959-Gallery-removebg-preview.png" alt="Kroxx Logo" className="w-10 h-10 md:w-14 md:h-14 object-contain brightness-0 invert" />
+    <img src="https://i.ibb.co/Fqb7DbWQ/Screenshot-20251021-152959-Gallery-removebg-preview.png" alt="Kroxx Logo" className="w-16 h-16 md:w-24 md:h-24 object-contain" />
     <div className="flex flex-col leading-none pt-1">
       <span className="font-black italic tracking-tighter text-2xl md:text-3xl text-white drop-shadow-md">
         KROXX
       </span>
-      <span className="text-[9px] font-bold tracking-[0.2em] text-white uppercase mt-1">
-        Gadgets & Repairs
+      <span className="text-[9px] sm:text-[10px] font-bold tracking-[0.2em] text-white uppercase mt-1">
+        Global Concept
       </span>
     </div>
   </div>
@@ -65,9 +67,9 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="absolute w-full z-50 top-0 left-0 pt-6 px-4 md:px-8">
+    <nav className="fixed w-full z-50 top-0 left-0 pt-3 px-4 md:px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="bg-[#2563eb] rounded-full px-6 py-4 flex justify-between items-center shadow-lg border-2 border-[#0b132b]">
+        <div className="bg-[#2563eb] rounded-full px-5 py-2 flex justify-between items-center shadow-lg border-2 border-[#0b132b]">
           <a href="#home" className="hover:scale-105 transition-transform">
             <Logo />
           </a>
@@ -134,7 +136,7 @@ const Marquee = () => {
         transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
         className="flex items-center gap-8 font-black text-white text-xl md:text-2xl uppercase tracking-widest"
       >
-        {Array(8).fill("FAST GADGET REPAIRS • ORIGINAL PARTS • PREMIUM DEVICE SALES • 90-DAY WARRANTY • ").map((text, i) => (
+        {Array(8).fill("FAST GADGET REPAIRS • ORIGINAL PARTS • PREMIUM DEVICE SALES • 90-DAY WARRANTY • NATIONWIDE COURIER & SHIPPING • FAST DELIVERY • ").map((text, i) => (
           <span key={i}>{text}</span>
         ))}
       </motion.div>
@@ -144,7 +146,7 @@ const Marquee = () => {
 
 const Hero = () => {
   return (
-    <header id="home" className={`${BLUE_BG} pt-40 md:pt-52 pb-16 min-h-screen flex flex-col justify-center`}>
+    <header id="home" className={`${GRADIENT_BG} pt-48 md:pt-60 pb-16 min-h-screen flex flex-col justify-center`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           
@@ -152,31 +154,43 @@ const Hero = () => {
           <div className="flex flex-col items-start relative z-10">
             <div className="bg-white/20 border-2 border-[#0b132b] px-4 py-2 rounded-full flex items-center gap-2 mb-8">
               <span className="w-3 h-3 rounded-full bg-[#0b132b] animate-pulse"></span>
-              <span className="font-bold text-[#0b132b] text-sm tracking-widest uppercase">Available 24 Hours</span>
+              <span className="font-bold text-[#0b132b] text-sm tracking-widest">Available 24 Hours</span>
             </div>
             
-            <h1 className="text-[55px] sm:text-[70px] md:text-[85px] leading-[0.95] font-black text-[#0b132b] uppercase tracking-tighter mb-8">
-              Premium <br/> Gadget <br/>
-              <span className="text-white">Sales & Repair</span>
+            <h1 className="text-[55px] sm:text-[70px] md:text-[85px] leading-tight md:leading-[1.1] font-black text-[#0b132b] uppercase tracking-tighter mb-8 xl:whitespace-nowrap">
+              Premium Gadget <br/>
+              <span className="text-white">Sales & Repair</span> <br/>
+              in <span className="relative inline-block mt-4 text-[#0b132b] z-10">
+                Abuja
+                <svg className="absolute -inset-6 w-[calc(100%+48px)] h-[calc(100%+48px)] text-[#e93f45] -z-10" viewBox="0 0 200 80" preserveAspectRatio="none" style={{ filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))' }}>
+                  <path d="M25,40 C25,12 175,12 175,40 C175,68 20,68 20,40 C20,32 50,18 90,18" fill="none" stroke="currentColor" strokeWidth="8" strokeLinecap="round" style={{ transform: 'rotate(-4deg)', transformOrigin: 'center' }} />
+                </svg>
+              </span>
             </h1>
             
             <p className="text-lg md:text-xl font-medium text-white mb-10 max-w-lg leading-relaxed mix-blend-color-burn">
               Experience lightning-fast service, genuine parts, and absolute reliability for all your smartphones, laptops, and tech accessories.
             </p>
             
-            <div className="flex flex-wrap gap-4 w-full sm:w-auto">
-              <a href={BRAND.whatsappUrl} target="_blank" rel="noopener noreferrer" className="bg-[#0b132b] text-white px-8 py-5 rounded-full font-black text-lg hover:bg-[#e93f45] hover:text-[#0b132b] transition-colors border-2 border-[#0b132b] flex items-center gap-3 w-full sm:w-auto justify-center uppercase shadow-lg">
+            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 w-full sm:w-auto">
+              <a href={BRAND.whatsappUrl} target="_blank" rel="noopener noreferrer" className="bg-[#0b132b] text-white px-8 h-[68px] rounded-full font-black text-lg hover:bg-[#e93f45] hover:text-[#0b132b] transition-colors border-2 border-[#0b132b] flex items-center gap-3 w-full sm:w-auto justify-center uppercase shadow-lg">
                 WhatsApp Booking <ArrowRight size={20} className="text-current" />
               </a>
-              <button 
-                onClick={() => {
-                   const evt = new CustomEvent('open-chat');
-                   window.dispatchEvent(evt);
-                }}
-                className="bg-white text-[#0b132b] px-8 py-5 rounded-full font-black text-lg hover:bg-[#e93f45] hover:text-[#0b132b] transition-colors border-2 border-[#0b132b] flex items-center gap-3 w-full sm:w-auto justify-center uppercase shadow-lg"
-              >
-                AI Assistance <Sparkles size={20} className="text-current" />
-              </button>
+              <div className="flex flex-col items-center sm:items-start gap-2 w-full sm:w-auto">
+                <button 
+                  onClick={() => {
+                     const evt = new CustomEvent('open-chat');
+                     window.dispatchEvent(evt);
+                  }}
+                  className="bg-white text-[#0b132b] px-6 py-3 rounded-full font-bold text-base hover:bg-[#e93f45] transition-colors border-2 border-[#0b132b] flex items-center gap-3 w-full sm:w-auto justify-center shadow-lg"
+                >
+                  AI Receptionist <Bot size={20} className="text-current" />
+                </button>
+                <div className="text-white text-xs font-bold tracking-widest px-3 py-1 bg-[#e93f45] rounded-full shadow-sm animate-pulse flex items-center gap-1 w-full justify-center sm:justify-start sm:w-auto">
+                  <span className="w-1.5 h-1.5 bg-white rounded-full"></span> 
+                  Skip the wait - instant answers!
+                </div>
+              </div>
             </div>
           </div>
 
@@ -203,8 +217,8 @@ const Hero = () => {
   );
 };
 
-const SectionHeading = ({ top, title, light = false }) => (
-  <div className="mb-14">
+const SectionHeading = ({ top, title, light = false, align = "left" }: any) => (
+  <div className={`mb-14 ${align === "center" ? "flex flex-col items-center text-center" : ""}`}>
     <div className={`inline-block px-4 py-1 rounded-full border-2 ${light ? 'border-white text-white' : 'border-[#0b132b] text-[#0b132b]'} font-bold text-sm uppercase tracking-widest mb-4`}>
       {top}
     </div>
@@ -213,6 +227,31 @@ const SectionHeading = ({ top, title, light = false }) => (
     </h2>
   </div>
 );
+
+
+const WhyChooseUs = () => {
+  const points = [
+    { title: "Elite Craftsmanship", desc: "Our technicians are highly vetted and trained continually." },
+    { title: "OEM Original Parts", desc: "We never compromise on components—only genuine parts are used." },
+    { title: "Express Turnaround", desc: "Over 80% of repairs are completed within 2 hours or less." },
+    { title: "Data Security", desc: "Your personal files and photos remain completely private." },
+  ];
+  return (
+    <section className={`${SECTION_PADDING} bg-[#e0f2fe] border-y-4 border-[#0b132b]`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionHeading top="Why Us" title="The Kroxx Advantage" align="center" />
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+          {points.map((pt, i) => (
+            <div key={i} className={`bg-white rounded-3xl p-8 border-4 border-[#0b132b] shadow-[8px_8px_0px_0px_#2563eb] hover:-translate-y-2 transition-transform duration-300`}>
+               <h3 className="text-2xl font-black text-[#0b132b] uppercase tracking-tight mb-3">{pt.title}</h3>
+               <p className="text-slate-600 font-medium leading-relaxed">{pt.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
 
 const Services = () => {
   const items = [
@@ -251,33 +290,30 @@ const Services = () => {
 
 const About = () => {
   return (
-    <section id="about" className={`${SECTION_PADDING} ${BLUE_BG} border-y-4 border-[#0b132b]`}>
+    <section id="about" className={`${SECTION_PADDING} ${GRADIENT_BG} border-y-4 border-[#0b132b]`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           
           <div className="order-2 lg:order-1 relative">
             <div className="absolute inset-0 bg-[#0b132b] rounded-3xl translate-x-4 translate-y-4"></div>
             <img 
-              src="https://images.unsplash.com/photo-1601524909162-ae8725290836?auto=format&fit=crop&w=800&q=80" 
-              alt="Tech Center" 
+              src="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=800&q=80" 
+              alt="Master Technician" 
               className="relative z-10 w-full h-[600px] object-cover rounded-3xl border-4 border-[#0b132b] grayscale mix-blend-multiply"
             />
-            {/* Video button placeholder */}
-            <div className="absolute inset-0 z-20 flex items-center justify-center">
-              <div className="w-24 h-24 bg-[#2563eb] border-4 border-[#0b132b] rounded-full flex items-center justify-center animate-pulse">
-                <div className="w-0 h-0 border-t-[12px] border-t-transparent border-l-[20px] border-l-white border-b-[12px] border-b-transparent ml-2"></div>
-              </div>
-            </div>
           </div>
 
           <div className="order-1 lg:order-2">
-            <SectionHeading top="Inside Our Hub" title="The Premier Tech Center" />
+            <SectionHeading top="Meet Our Experts" title="Madudim Ikechukwu Kingsley" />
             
-            <p className="text-xl font-bold text-white mb-6 leading-relaxed">
-              We are a team of experienced and certified tech experts dedicated to providing high-quality repair care in a welcoming, professional environment. 
+            <p className="text-2xl font-black text-[#60a5fa] mb-6 leading-snug drop-shadow-md">
+              "Your device isn't just broken—it's waiting to be reborn. We don't just fix; we engineer perfection."
             </p>
-            <p className="text-lg font-medium text-[#0b132b] mb-10 leading-relaxed bg-white/20 p-6 rounded-2xl border-2 border-[#0b132b]">
-              Our mission is to help you restore, upgrade, and purchase your essential daily tools using modern techniques and transparent pricing. From simple screen replacements to complex motherboard fixes, and premium phone sales, we handle it all.
+            <p className="text-lg font-bold text-white mb-8 leading-relaxed">
+              Led by CEO & Master Technician <span className="text-[#e93f45]">Madudim Ikechukwu Kingsley</span>, our certified squad brings over a decade of elite, global-standard expertise straight to Abuja.
+            </p>
+            <p className="text-lg font-medium text-[#0b132b] mb-10 leading-relaxed bg-white/90 p-6 rounded-2xl border-4 border-[#e93f45] shadow-[8px_8px_0px_0px_#e93f45] transform -rotate-1">
+              Why settle for guesswork when you can have guaranteed, surgical-level precision? Whether it's advanced logic board micro-soldering, seamless screen restoration, or critical data recovery—we bring dead gadgets back to life. <strong>Don't compromise on your premium tech. Choose the masters.</strong>
             </p>
             
             <div className="flex flex-col gap-4 text-white font-black text-xl">
@@ -312,7 +348,7 @@ const HowItWorks = () => {
         <div className="grid md:grid-cols-4 gap-6">
           {steps.map((step, idx) => (
             <div key={idx} className="bg-white rounded-3xl p-8 relative border-4 border-[#2563eb]">
-              <div className="absolute -top-6 -right-6 text-8xl font-black text-[#2563eb]/20 leading-none">0{idx + 1}</div>
+              <div className="absolute -top-6 -right-6 text-8xl font-black text-[#e93f45]/20 leading-none">0{idx + 1}</div>
               <IconBox icon={step.icon} className="mb-8 w-16 h-16 border-2 border-[#0b132b]" />
               <h4 className="text-2xl font-black text-[#0b132b] uppercase mb-4 leading-none">{step.title}</h4>
               <p className="text-slate-600 font-bold">{step.desc}</p>
@@ -327,9 +363,9 @@ const HowItWorks = () => {
 
 const Reviews = () => {
   const reviews = [
-    { name: "John Doe", text: "Incredible service. They fixed my MacBook's dead logic board in two days when others told me to buy a new one.", role: "Local Guide" },
-    { name: "Sarah Williams", text: "Got a screen replacement for my iPhone. It looks crisp and perfect. The techs were very professional.", role: "Verified Customer" },
-    { name: "Michael O.", text: "Best gadget shop! Transparent pricing and my laptop runs faster than ever thanks to the SSD upgrade.", role: "Verified Customer" }
+    { name: "John Doe", text: "Incredible service. They fixed my MacBook's dead logic board in two days when others told me to buy a new one.", role: "Local Guide", img: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=150&q=80" },
+    { name: "Sarah Williams", text: "Got a screen replacement for my iPhone. It looks crisp and perfect. The techs were very professional.", role: "Verified Customer", img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80" },
+    { name: "Michael O.", text: "Best gadget shop! Transparent pricing and my laptop runs faster than ever thanks to the SSD upgrade.", role: "Verified Customer", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" }
   ];
 
   return (
@@ -350,9 +386,14 @@ const Reviews = () => {
                 {[...Array(5)].map((_, i) => <Star key={i} size={24} className="text-[#2563eb]" fill="currentColor" />)}
               </div>
               <p className="text-lg font-bold text-[#0b132b] mb-8 leading-relaxed">"{review.text}"</p>
-              <div>
-                <h4 className="text-lg font-black text-[#0b132b] uppercase tracking-wide">{review.name}</h4>
-                <p className="text-slate-500 font-bold">{review.role}</p>
+              <div className="flex justify-between items-end">
+                <div>
+                  <h4 className="text-lg font-black text-[#0b132b] uppercase tracking-wide">{review.name}</h4>
+                  <p className="text-slate-500 font-bold">{review.role}</p>
+                </div>
+                <div className="w-16 h-16 bg-slate-200 rounded-xl overflow-hidden border-2 border-[#0b132b] shrink-0">
+                  <img src={review.img} className="w-full h-full object-cover grayscale" alt={review.name} />
+                </div>
               </div>
             </motion.div>
           ))}
@@ -363,58 +404,124 @@ const Reviews = () => {
 };
 
 const Appointment = () => {
+  const [formData, setFormData] = useState({ name: '', phone: '', service: 'Screen Replacement' });
+
+  const handleBooking = (e) => {
+    e.preventDefault();
+    const text = `Hello Kroxx Gadgets! I would like to book a VIP slot.%0A%0A*Name:* ${formData.name}%0A*Phone:* ${formData.phone}%0A*Service Required:* ${formData.service}`;
+    window.open(`https://wa.me/2349054650886?text=${text}`, '_blank');
+  };
+
   return (
-    <section id="appointment" className={`${SECTION_PADDING} ${LIGHT_BG}`}>
+    <section id="appointment" className={`${SECTION_PADDING} bg-[#f8f9fa] border-t-4 border-[#0b132b]`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-[#2563eb] border-4 border-[#0b132b] rounded-[3rem] overflow-hidden flex flex-col lg:flex-row shadow-[12px_12px_0px_0px_#0b132b]">
+        <SectionHeading top="Skip the Queue" title="Book Premium Tech Care" align="center" />
+        
+        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto items-start mt-12">
           
-          <div className="lg:w-1/2 p-10 md:p-16 border-b-4 lg:border-b-0 lg:border-r-4 border-[#0b132b]">
-            <SectionHeading top="Skip The Queue" title="Book An Appointment" />
-            <p className="text-white font-bold text-xl mb-12">
-              Secure your slot and let our experts handle the rest. We prioritize scheduled diagnostics.
-            </p>
-            <div className="bg-[#0b132b] p-8 rounded-3xl border-2 border-white space-y-8">
-              <div className="flex items-center gap-6">
-                <IconBox icon={Phone} />
-                <div>
-                  <div className="text-white text-xs font-black tracking-widest uppercase">Call Us Directly</div>
-                  <div className="text-2xl font-black text-[#2563eb]">{BRAND.phoneFormatted}</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-6">
-                <IconBox icon={MapPin} />
-                <div>
-                  <div className="text-white text-xs font-black tracking-widest uppercase">Our Location</div>
-                  <div className="text-lg font-bold text-white">{BRAND.address}</div>
-                </div>
-              </div>
-            </div>
+          {/* Booking Option (Form) */}
+          <div className={`${BENTO_CARD} transform hover:scale-[1.02] transition-transform duration-300 relative`}>
+             <div className="flex items-center gap-4 mb-8">
+               <div className="w-16 h-16 rounded-full bg-[#e93f45] flex items-center justify-center border-4 border-[#0b132b]">
+                 <Calendar className="text-white" size={32} />
+               </div>
+               <div>
+                 <h3 className="text-3xl font-black text-white uppercase tracking-tight">Fast Track</h3>
+                 <p className="text-[#60a5fa] font-bold">Secure your priority slot now</p>
+               </div>
+             </div>
+             
+             <form onSubmit={handleBooking} className="space-y-4">
+               <div>
+                 <input 
+                   type="text" 
+                   required
+                   value={formData.name}
+                   onChange={e => setFormData({...formData, name: e.target.value})}
+                   placeholder="Your Name" 
+                   className="w-full bg-white/10 text-white placeholder:text-slate-400 px-6 py-4 rounded-xl border-2 border-transparent focus:border-[#e93f45] focus:outline-none font-medium"
+                 />
+               </div>
+               <div>
+                 <input 
+                   type="tel" 
+                   required
+                   value={formData.phone}
+                   onChange={e => setFormData({...formData, phone: e.target.value})}
+                   placeholder="WhatsApp Number" 
+                   className="w-full bg-white/10 text-white placeholder:text-slate-400 px-6 py-4 rounded-xl border-2 border-transparent focus:border-[#e93f45] focus:outline-none font-medium"
+                 />
+               </div>
+               <div>
+                 <select 
+                   required
+                   value={formData.service}
+                   onChange={e => setFormData({...formData, service: e.target.value})}
+                   className="w-full bg-[#1e293b] text-white px-6 py-4 rounded-xl border-2 border-transparent focus:border-[#e93f45] focus:outline-none font-medium appearance-none"
+                 >
+                   <option value="Screen Replacement">Screen Replacement</option>
+                   <option value="Logic Board Repair">Logic Board Repair</option>
+                   <option value="Battery Replacement">Battery Replacement</option>
+                   <option value="Data Recovery">Data Recovery</option>
+                   <option value="Device Purchase">Device Purchase / Swap</option>
+                   <option value="Other">Other Issues</option>
+                 </select>
+               </div>
+               <button type="submit" className="w-full bg-[#2563eb] hover:bg-[#e93f45] text-white hover:text-[#0b132b] font-black text-lg py-5 rounded-xl transition-all uppercase tracking-widest border-2 border-transparent hover:border-[#0b132b] flex items-center justify-center gap-3 mt-4">
+                 Book via WhatsApp <Send size={24} />
+               </button>
+             </form>
           </div>
 
-          <div className="lg:w-1/2 p-10 md:p-16 bg-white">
-            <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); alert('Booking request sent successfully!'); }}>
-              <div className="space-y-2">
-                <label className="block text-xs font-black text-[#0b132b] uppercase tracking-widest">Full Name</label>
-                <input type="text" className="w-full bg-[#f8f9fa] border-2 border-[#0b132b] rounded-xl px-5 py-4 focus:outline-none focus:border-[#2563eb] font-bold" placeholder="Your Name" required />
+          {/* Contact & Location */}
+          <div className="bg-white rounded-3xl p-8 md:p-10 border-4 border-[#0b132b] shadow-[8px_8px_0px_0px_#2563eb]">
+            <h3 className="text-2xl font-black text-[#0b132b] uppercase mb-8 pb-4 border-b-2 border-slate-100">
+              Direct Contact & Location
+            </h3>
+            
+            <div className="space-y-8">
+              <div className="flex items-start gap-4">
+                 <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center shrink-0 border border-blue-100">
+                   <Phone className="text-[#2563eb]" size={24} />
+                 </div>
+                 <div>
+                   <h4 className="font-bold text-[#0b132b] mb-1">Call Us Directly</h4>
+                   <a href={`tel:${BRAND.phone.replace(/\s+/g, '')}`} className="text-lg text-slate-600 hover:text-[#2563eb] font-medium transition-colors">
+                     {BRAND.phone}
+                   </a>
+                 </div>
               </div>
-              <div className="space-y-2">
-                <label className="block text-xs font-black text-[#0b132b] uppercase tracking-widest">Phone Number</label>
-                <input type="tel" className="w-full bg-[#f8f9fa] border-2 border-[#0b132b] rounded-xl px-5 py-4 focus:outline-none focus:border-[#2563eb] font-bold" placeholder="+234..." required />
+
+              <div className="flex items-start gap-4">
+                 <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center shrink-0 border border-blue-100">
+                   <Mail className="text-[#2563eb]" size={24} />
+                 </div>
+                 <div>
+                   <h4 className="font-bold text-[#0b132b] mb-1">Email Address</h4>
+                   <a href={`mailto:${BRAND.email}`} className="text-lg text-slate-600 hover:text-[#2563eb] font-medium transition-colors break-all">
+                     {BRAND.email}
+                   </a>
+                 </div>
               </div>
-              <div className="space-y-2">
-                <label className="block text-xs font-black text-[#0b132b] uppercase tracking-widest">Service Needed</label>
-                <select className="w-full bg-[#f8f9fa] border-2 border-[#0b132b] rounded-xl px-5 py-4 focus:outline-none focus:border-[#2563eb] font-bold appearance-none" required>
-                  <option value="">Select Service / Device</option>
-                  <option value="buy_device">Buy a Phone / Laptop</option>
-                  <option value="phone">Phone Repair</option>
-                  <option value="laptop">Laptop / PC Repair</option>
-                  <option value="other">Accessories / Other</option>
-                </select>
+              
+              <div className="flex items-start gap-4">
+                 <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center shrink-0 border border-blue-100">
+                   <MapPin className="text-[#2563eb]" size={24} />
+                 </div>
+                 <div>
+                   <h4 className="font-bold text-[#0b132b] mb-1">Service Center</h4>
+                   <p className="text-lg text-slate-600 font-medium leading-relaxed">
+                     {BRAND.address}
+                     <br/>
+                     {BRAND.city}
+                   </p>
+                 </div>
               </div>
-              <button type="submit" className="w-full bg-[#0b132b] hover:bg-[#e93f45] hover:text-[#0b132b] text-white font-black text-xl py-5 rounded-xl transition-colors uppercase tracking-widest border-2 border-[#0b132b] mt-4">
-                Confirm Booking
-              </button>
-            </form>
+            </div>
+            
+            <a href={BRAND.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="mt-8 flex items-center gap-2 text-[#2563eb] font-bold hover:text-[#e93f45] transition-colors">
+              Get Directions <ChevronRight size={20} />
+            </a>
           </div>
 
         </div>
@@ -425,7 +532,7 @@ const Appointment = () => {
 
 const Footer = () => {
   return (
-    <footer id="contact" className={`${DARK_BG} pt-24 pb-8 border-t-4 border-[#2563eb]`}>
+    <footer id="contact" className={`${GRADIENT_BG} pt-24 pb-8 border-t-4 border-[#2563eb]`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid lg:grid-cols-2 gap-16 mb-20">
@@ -458,11 +565,19 @@ const Footer = () => {
               <div className="text-[#2563eb] text-sm font-black uppercase tracking-widest">Connect</div>
               <div className="flex gap-4">
                 <MessageCircle className={ICON_COLOR} size={24} />
-                <a href={BRAND.whatsappUrl} target="_blank" rel="noopener noreferrer" className="hover:text-[#2563eb]">WhatsApp Us</a>
+                <a href={BRAND.whatsappUrl} target="_blank" rel="noopener noreferrer" className="hover:text-[#e93f45] font-extrabold transition-colors">{BRAND.phoneFormatted}</a>
               </div>
               <div className="flex gap-4">
                 <Mail className={ICON_COLOR} size={24} />
-                <a href={`mailto:${BRAND.email}`} className="hover:text-[#2563eb]">{BRAND.email}</a>
+                <a href={`mailto:${BRAND.email}`} className="hover:text-[#e93f45] font-extrabold transition-colors">{BRAND.email}</a>
+              </div>
+              <div className="flex gap-4 pt-4">
+                <a href={BRAND.twitterUrl} className="w-12 h-12 rounded-full bg-white flex items-center justify-center hover:bg-[#e93f45] hover:text-[#0b132b] transition-colors border-2 border-[#0b132b]">
+                  <Twitter size={20} className="text-[#0b132b]" />
+                </a>
+                <a href="#" className="w-12 h-12 rounded-full bg-white flex items-center justify-center hover:bg-[#e93f45] hover:text-[#0b132b] transition-colors border-2 border-[#0b132b]">
+                  <Instagram size={20} className="text-[#0b132b]" />
+                </a>
               </div>
             </div>
           </div>
@@ -472,14 +587,7 @@ const Footer = () => {
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <Logo />
-          <div className="flex gap-4">
-            <a href={BRAND.twitterUrl} className="w-12 h-12 rounded-full bg-white flex items-center justify-center hover:bg-[#e93f45] hover:text-[#0b132b] transition-colors border-2 border-[#0b132b]">
-              <Twitter size={20} className="text-[#0b132b]" />
-            </a>
-            <a href="#" className="w-12 h-12 rounded-full bg-white flex items-center justify-center hover:bg-[#e93f45] hover:text-[#0b132b] transition-colors border-2 border-[#0b132b]">
-              <Instagram size={20} className="text-[#0b132b]" />
-            </a>
-          </div>
+          <div className="text-[#e93f45] font-black text-sm tracking-widest pl-4">Cooked by Digital Chukwudi</div>
         </div>
         
       </div>

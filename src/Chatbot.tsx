@@ -215,15 +215,38 @@ export default function Chatbot() {
     recognition.start();
   };
 
+  useEffect(() => {
+    // Determine if it's a large screen
+    const isDesktop = window.innerWidth >= 768;
+    if (isDesktop) {
+      const timer = setTimeout(() => {
+        setIsOpen(true);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
   return (
     <>
-      <button
-        onClick={() => setIsOpen(true)}
-        className={`fixed bottom-24 right-8 w-14 h-14 bg-blue-600 hover:bg-blue-700 text-[#1e3a8a] rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-105 z-50 ${isOpen ? 'hidden' : 'flex'}`}
-        aria-label="Open Chat"
-      >
-        <MessageCircle size={28} />
-      </button>
+      <div className={`fixed bottom-20 right-6 z-50 flex items-center gap-3 ${isOpen ? 'hidden' : 'flex'}`}>
+        <div className="bg-[#60a5fa] border-2 border-[#1e3a8a] shadow-lg px-4 py-2 rounded-full pointer-events-none transform animate-pulse">
+          <span className="text-white font-black text-[13px] uppercase tracking-widest leading-none whitespace-nowrap">
+            Need Help?
+          </span>
+        </div>
+        <div className="relative">
+          {/* Radar Pulse Effect */}
+          <div className="absolute inset-0 bg-[#3b82f6] rounded-full animate-ping opacity-75"></div>
+          
+          <button
+            onClick={() => setIsOpen(true)}
+            className="relative w-16 h-16 bg-[#2563eb] hover:bg-[#e93f45] hover:text-[#0b132b] text-white border-4 border-[#0b132b] shadow-xl rounded-full flex items-center justify-center transition-transform hover:scale-110 z-10"
+            aria-label="Open Chat"
+          >
+            <MessageCircle size={32} strokeWidth={2.5} />
+          </button>
+        </div>
+      </div>
 
       {isOpen && (
         <div className="fixed bottom-24 right-8 w-[90vw] sm:w-[380px] h-[550px] max-h-[85vh] bg-white rounded-2xl shadow-2xl flex flex-col z-50 overflow-hidden border border-slate-200">
