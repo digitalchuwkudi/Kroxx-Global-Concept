@@ -228,9 +228,9 @@ export default function Chatbot() {
 
   return (
     <>
-      <div className={`fixed bottom-20 right-6 z-50 flex items-center gap-3 ${isOpen ? 'hidden' : 'flex'}`}>
-        <div className="bg-[#60a5fa] border-2 border-[#1e3a8a] shadow-lg px-4 py-2 rounded-full pointer-events-none transform animate-pulse">
-          <span className="text-white font-black text-[13px] uppercase tracking-widest leading-none whitespace-nowrap">
+      <div className={`fixed bottom-20 right-6 z-50 flex items-center gap-3 group ${isOpen ? 'hidden' : 'flex'}`}>
+        <div className="bg-white border-2 border-[#1b6feb] shadow-lg px-4 py-2 rounded-full pointer-events-none transform opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <span className="text-[#1b6feb] font-black text-[13px] uppercase tracking-widest leading-none whitespace-nowrap">
             Need Help?
           </span>
         </div>
