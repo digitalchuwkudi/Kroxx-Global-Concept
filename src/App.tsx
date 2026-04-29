@@ -63,9 +63,7 @@ const Navbar = () => {
     { name: 'Services', href: '#services' },
     { name: 'Process', href: '#process' },
     { name: 'Reviews', href: '#reviews' },
-    { name: 'Contact', href: '#appointment' },
-    { name: 'Contact', href: '#contact' },
-  ];
+    ];
 
   return (
     <nav className="fixed w-full z-50 top-0 left-0 pt-3 px-4 md:px-6">
@@ -197,33 +195,22 @@ const Hero = () => {
           </div>
 
           {/* Right Content - Hero Video */}
-          <motion.div 
+                    <motion.div 
              initial={{ opacity: 0 }}
              animate={{ opacity: 1 }}
              transition={{ duration: 0.8, ease: "easeOut" }}
-             className="relative w-full h-[500px] md:h-[600px] rounded-[3rem] overflow-hidden shadow-2xl bg-[#1b6feb]"
+             className="relative w-full h-[500px] md:h-[600px] rounded-[3rem] overflow-hidden shadow-2xl bg-[#0065ea]"
           >
             <video 
-              src="https://res.cloudinary.com/dx41voszq/video/upload/v1777436411/Transform_broken_phone_to_repaired_202604282107_c9fvlt.mp4"
+              src="https://res.cloudinary.com/dx41voszq/video/upload/v1777440712/Transform_animation_broken_repai__202604282230_lad5pw.mp4"
               autoPlay
               muted
               loop
               playsInline
-              className="w-full h-full object-cover opacity-80 blur-[3px]"
+              className="w-full h-full object-cover"
             />
-            {/* Gradient Overlay left to right */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#1b6feb] via-[#1b6feb]/20 to-transparent pointer-events-none" />
-            
-            {/* Soft Badge Overlay */}
-            <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md rounded-3xl p-6 flex items-center justify-between shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
-              <div>
-                <div className="text-4xl font-black text-[#1b6feb]">10k+</div>
-                <div className="text-[#0b132b] font-bold text-sm tracking-widest uppercase mt-1">Fixed Gadgets</div>
-              </div>
-              <div className="w-14 h-14 rounded-full flex items-center justify-center shrink-0 bg-[#1b6feb] text-white shadow-lg">
-                <Wrench size={24} />
-              </div>
-            </div>
+            {/* Edge blur overlay using box-shadow inset */}
+            <div className="absolute inset-0 pointer-events-none rounded-[3rem]" style={{ boxShadow: 'inset 0 0 60px 20px #0065ea' }}></div>
           </motion.div>
 
         </div>
@@ -425,11 +412,11 @@ const Reviews = () => {
 };
 
 const Appointment = () => {
-  const [formData, setFormData] = useState({ name: '', phone: '', service: 'Screen Replacement' });
+  const [formData, setFormData] = useState({ name: '', phone: '', service: 'Screen Replacement', date: '', time: '' });
 
   const handleBooking = (e) => {
     e.preventDefault();
-    const text = `Hello Kroxx Gadgets! I would like to book a VIP slot.%0A%0A*Name:* ${formData.name}%0A*Phone:* ${formData.phone}%0A*Service Required:* ${formData.service}`;
+    const text = `Hello Kroxx Gadgets! I would like to book a VIP slot.%0A%0A*Name:* ${formData.name}%0A*Phone:* ${formData.phone}%0A*Date:* ${formData.date}%0A*Time:* ${formData.time}%0A*Service Required:* ${formData.service}`;
     window.open(`https://wa.me/2349054650886?text=${text}`, '_blank');
   };
 
@@ -438,10 +425,10 @@ const Appointment = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading top="Skip the Queue" title="Book For Premium Service" align="center" />
         
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto items-start mt-12">
+        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto items-stretch mt-12">
           
           {/* Booking Option (Form) */}
-          <div className={`bg-white rounded-3xl p-8 md:p-10 transform hover:scale-[1.02] transition-transform duration-300 relative border-4 border-[#0b132b] shadow-[8px_8px_0px_0px_#1b6feb]`}>
+          <div className={`bg-white rounded-3xl p-8 md:p-10 transform hover:scale-[1.02] transition-transform duration-300 relative border-4 border-[#0b132b] shadow-[8px_8px_0px_0px_#1b6feb] flex flex-col h-full`}>
              <div className="flex flex-col items-center text-center gap-4 mb-8">
                
                <div>
@@ -450,7 +437,7 @@ const Appointment = () => {
                </div>
              </div>
              
-             <form onSubmit={handleBooking} className="space-y-4">
+             <form onSubmit={handleBooking} className="space-y-5 flex flex-col justify-center flex-1 h-full mb-0">
                <div>
                  <input 
                    type="text" 
@@ -486,36 +473,52 @@ const Appointment = () => {
                    <option value="Other Issues">Other Issues</option>
                  </select>
                </div>
-               <button type="submit" className="flex items-center justify-center gap-2 bg-[#0b132b] hover:bg-[#e93f45] hover:text-[#0b132b] text-white hover:border-[#e93f45] w-full py-5 rounded-full font-black text-lg transition-colors border-2 border-[#0b132b] shadow-md uppercase tracking-wider mt-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <input 
+                    type="date" 
+                    required
+                    value={formData.date || ''}
+                    onChange={e => setFormData({...formData, date: e.target.value})}
+                    className="w-full bg-slate-100 text-[#0b132b] placeholder:text-slate-500 px-6 py-4 rounded-xl border-2 border-slate-200 focus:border-[#e93f45] focus:outline-none font-medium text-sm md:text-base"
+                  />
+                  <input 
+                    type="time" 
+                    required
+                    value={formData.time || ''}
+                    onChange={e => setFormData({...formData, time: e.target.value})}
+                    className="w-full bg-slate-100 text-[#0b132b] placeholder:text-slate-500 px-6 py-4 rounded-xl border-2 border-slate-200 focus:border-[#e93f45] focus:outline-none font-medium text-sm md:text-base"
+                  />
+                </div>
+               <button type="submit" className="flex items-center justify-center gap-2 bg-[#0b132b] hover:bg-[#e93f45] hover:text-[#0b132b] text-white hover:border-[#e93f45] w-full py-5 rounded-full font-black text-lg transition-colors border-2 border-[#0b132b] shadow-md uppercase tracking-wider mt-auto">
                  BOOK ON WHATSAPP <Send size={24} />
                </button>
              </form>
           </div>
 
           {/* Contact & Location */}
-          <div className="bg-white rounded-3xl p-8 md:p-10 border-4 border-[#0b132b] shadow-[8px_8px_0px_0px_#1b6feb] flex flex-col items-center text-center">
-            <h3 className="text-2xl font-black text-[#0b132b] uppercase mb-8 pb-4 border-b-2 border-slate-100">
+          <div className="bg-white rounded-3xl p-8 md:p-10 border-4 border-[#0b132b] shadow-[8px_8px_0px_0px_#1b6feb] flex flex-col items-center text-center justify-center h-full">
+            <h3 className="text-2xl font-black text-[#0b132b] uppercase mb-10">
               Direct Contact & Location
             </h3>
             
-            <div className="space-y-8">
-              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4">
-                 <div className="w-12 h-12 bg-[#0b132b] rounded-full flex items-center justify-center shrink-0">
+            <div className="space-y-12">
+              <div className="flex flex-col items-center text-center gap-3">
+                 <div className="w-14 h-14 bg-[#0b132b] rounded-full flex items-center justify-center shrink-0 text-white">
                    <Phone className="text-white" size={24} />
                  </div>
-                 <div>
+                 <div className="flex flex-col mt-2">
                    <h4 className="font-bold text-[#0b132b] mb-1">Call Us Directly</h4>
-                   <a href={`tel:${BRAND.phone.replace(/\s+/g, '')}`} className="text-lg text-slate-600 hover:text-[#1b6feb] font-medium transition-colors">
+                   <a href={`tel:${BRAND.phone.replace(/\s+/g, '')}`} className="text-lg text-slate-600 hover:text-[#1b6feb] font-extrabold transition-colors">
                      {BRAND.phone}
                    </a>
                  </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4">
-                 <div className="w-12 h-12 bg-[#0b132b] rounded-full flex items-center justify-center shrink-0">
+              <div className="flex flex-col items-center text-center gap-3">
+                 <div className="w-14 h-14 bg-[#0b132b] rounded-full flex items-center justify-center shrink-0 text-white">
                    <Mail className="text-white" size={24} />
                  </div>
-                 <div>
+                 <div className="flex flex-col mt-2">
                    <h4 className="font-bold text-[#0b132b] mb-1">Email Address</h4>
                    <a href={`mailto:${BRAND.email}`} className="text-lg text-slate-600 hover:text-[#1b6feb] font-medium transition-colors break-all">
                      {BRAND.email}
@@ -523,14 +526,14 @@ const Appointment = () => {
                  </div>
               </div>
               
-              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4">
-                 <div className="w-12 h-12 bg-[#0b132b] rounded-full flex items-center justify-center shrink-0">
+              <div className="flex flex-col items-center text-center gap-3">
+                 <div className="w-14 h-14 bg-[#0b132b] rounded-full flex items-center justify-center shrink-0 text-white">
                    <MapPin className="text-white" size={24} />
                  </div>
-                 <div>
+                 <div className="flex flex-col mt-2">
                    <h4 className="font-bold text-[#0b132b] mb-1">Service Center</h4>
                    <p className="text-lg text-slate-600 font-medium leading-relaxed">
-                     {BRAND.address}, {BRAND.city}
+                     {BRAND.address}, <br/>{BRAND.city}
                    </p>
                  </div>
               </div>
@@ -558,11 +561,11 @@ const Footer = () => {
               Let's Fix <br/><span className="text-white">It Today.</span>
             </h2>
             <div className="flex gap-4 pt-4">
-              <a href={BRAND.twitterUrl} className="w-16 h-16 rounded-full bg-white flex items-center justify-center hover:bg-[#e93f45] hover:text-[#0b132b] transition-colors shadow-lg shadow-black/30 group">
-                <Twitter size={28} className="text-[#0b132b] group-hover:scale-110 transition-transform" />
+              <a href={BRAND.twitterUrl} className="w-12 h-12 rounded-full bg-white flex items-center justify-center hover:bg-[#e93f45] hover:text-[#0b132b] transition-colors border-2 border-[#0b132b]">
+                <Twitter size={20} className="text-[#0b132b]" />
               </a>
-              <a href="#" className="w-16 h-16 rounded-full bg-white flex items-center justify-center hover:bg-[#e93f45] hover:text-[#0b132b] transition-colors shadow-lg shadow-black/30 group">
-                <Instagram size={28} className="text-[#0b132b] group-hover:scale-110 transition-transform" />
+              <a href="#" className="w-12 h-12 rounded-full bg-white flex items-center justify-center hover:bg-[#e93f45] hover:text-[#0b132b] transition-colors border-2 border-[#0b132b]">
+                <Instagram size={20} className="text-[#0b132b]" />
               </a>
             </div>
           </div>
@@ -592,14 +595,7 @@ const Footer = () => {
                 <div className="bg-[#0b132b] rounded-full p-2 w-10 h-10 flex flex-col items-center justify-center shrink-0"><Mail className="text-white" size={20} /></div>
                 <a href={`mailto:${BRAND.email}`} className="hover:text-[#e93f45] font-extrabold transition-colors">{BRAND.email}</a>
               </div>
-              <div className="flex gap-4 pt-4">
-                <a href={BRAND.twitterUrl} className="w-12 h-12 rounded-full bg-white flex items-center justify-center hover:bg-[#e93f45] hover:text-[#0b132b] transition-colors border-2 border-[#0b132b]">
-                  <Twitter size={20} className="text-[#0b132b]" />
-                </a>
-                <a href="#" className="w-12 h-12 rounded-full bg-white flex items-center justify-center hover:bg-[#e93f45] hover:text-[#0b132b] transition-colors border-2 border-[#0b132b]">
-                  <Instagram size={20} className="text-[#0b132b]" />
-                </a>
-              </div>
+
             </div>
           </div>
         </div>
