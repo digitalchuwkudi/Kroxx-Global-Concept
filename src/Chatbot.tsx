@@ -236,7 +236,7 @@ export default function Chatbot() {
         </div>
         <div className="relative">
           {/* Radar Pulse Effect */}
-          <div className="absolute inset-0 bg-[#3b82f6] rounded-full animate-ping opacity-75"></div>
+          <div className="absolute inset-0 bg-[#0b132b] rounded-full animate-ping opacity-75"></div>
           
           <button
             onClick={() => setIsOpen(true)}
@@ -249,7 +249,7 @@ export default function Chatbot() {
       </div>
 
       {isOpen && (
-        <div className="fixed bottom-24 right-8 w-[90vw] sm:w-[380px] h-[550px] max-h-[85vh] bg-white rounded-2xl shadow-2xl flex flex-col z-50 overflow-hidden border border-slate-200">
+        <div className="fixed bottom-24 right-4 sm:right-8 w-[320px] sm:w-[380px] h-[500px] max-h-[calc(100vh-140px)] z-[120] bg-white rounded-3xl shadow-[8px_8px_0px_0px_#1b6feb] flex flex-col border-4 border-[#0b132b] overflow-hidden">
           <div className="bg-[#1e3a8a] p-4 flex items-center justify-between text-[#ffffff]">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-[#1e3a8a]">

@@ -35,8 +35,8 @@ const DARK_BG = "bg-[#1b6feb]";
 const LIGHT_BG = "bg-[#f8f9fa]";
 
 const IconBox = ({ icon: Icon, className = "" }) => (
-  <div className={`w-14 h-14 rounded-full flex items-center justify-center bg-[#1b6feb] ${className}`}>
-    <Icon className={ICON_COLOR} size={24} />
+  <div className={`w-14 h-14 rounded-full flex items-center justify-center shrink-0 ${className}`}>
+    <Icon size={24} />
   </div>
 );
 
@@ -83,8 +83,8 @@ const Navbar = () => {
           </div>
 
           <div className="hidden lg:flex items-center">
-            <a href={`tel:${BRAND.phone.replace(/\s+/g, '')}`} className="flex items-center justify-center gap-2 bg-[#0b132b] hover:bg-white hover:text-[#0b132b] text-white px-8 py-4 rounded-full font-black text-lg transition-colors border-2 border-[#0b132b] shadow-md uppercase tracking-wider">
-              <Phone size={24} className="text-[#60a5fa] animate-pulse" /> <span>{BRAND.phoneFormatted}</span>
+            <a href={`tel:${BRAND.phone.replace(/\s+/g, '')}`} className="flex items-center justify-center gap-2 bg-[#0b132b] hover:bg-[#e93f45] hover:text-[#0b132b] text-white px-8 py-4 rounded-full font-black text-lg transition-colors border-2 border-[#0b132b] shadow-md uppercase tracking-wider group">
+              <Phone size={24} className="text-[#60a5fa] group-hover:text-[#0b132b] animate-pulse" /> <span>{BRAND.phoneFormatted}</span>
             </a>
           </div>
 
@@ -111,14 +111,14 @@ const Navbar = () => {
                 <X size={28} />
               </button>
             </div>
-            <div className="flex flex-col gap-6 text-center">
+            <div className="flex flex-col gap-4 md:gap-6 text-center">
               {navLinks.map((link) => (
-                <a key={link.name} href={link.href} onClick={() => setIsMobileMenuOpen(false)} className="text-4xl font-black text-white hover:bg-[#e93f45] hover:text-[#0b132b] px-4 py-2 rounded-full uppercase tracking-tighter">
+                <a key={link.name} href={link.href} onClick={() => setIsMobileMenuOpen(false)} className="text-xl md:text-2xl font-black text-white hover:bg-[#e93f45] hover:text-[#0b132b] px-4 py-2 rounded-full uppercase tracking-tighter">
                   {link.name}
                 </a>
               ))}
-              <a href={`tel:${BRAND.phone.replace(/\s+/g, '')}`} onClick={() => setIsMobileMenuOpen(false)} className="mt-8 mx-auto flex items-center justify-center gap-2 bg-[#0b132b] hover:bg-white hover:text-[#0b132b] text-white px-8 py-4 rounded-full font-black text-lg transition-colors border-2 border-[#0b132b] shadow-md uppercase tracking-wider w-full max-w-sm">
-                <Phone size={24} className="text-[#60a5fa] animate-pulse" /> <span>Call Now</span>
+              <a href={`tel:${BRAND.phone.replace(/\s+/g, '')}`} onClick={() => setIsMobileMenuOpen(false)} className="mt-8 mx-auto flex items-center justify-center gap-2 bg-[#0b132b] hover:bg-[#e93f45] hover:text-[#0b132b] text-white px-8 py-4 rounded-full font-black text-lg transition-colors border-2 border-[#0b132b] shadow-md uppercase tracking-wider w-full max-w-sm group">
+                <Phone size={24} className="text-[#60a5fa] group-hover:text-[#0b132b] animate-pulse" /> <span>{BRAND.phoneFormatted}</span>
               </a>
             </div>
           </motion.div>
@@ -146,7 +146,7 @@ const Marquee = () => {
 
 const Hero = () => {
   return (
-    <header id="home" className={`${GRADIENT_BG} pt-48 md:pt-60 pb-16 min-h-screen flex flex-col justify-center`}>
+    <header id="home" className={`${GRADIENT_BG} pt-32 md:pt-40 pb-16 min-h-screen flex flex-col justify-center`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           
@@ -157,7 +157,7 @@ const Hero = () => {
               <span className="font-bold text-white text-sm tracking-widest">Available 24 Hours</span>
             </div>
             
-            <h1 className="text-[50px] sm:text-[70px] md:text-[85px] leading-[1.05] md:leading-[1.1] font-black text-white uppercase tracking-tighter mb-8 xl:whitespace-nowrap">
+            <h1 className="text-[40px] sm:text-[55px] md:text-[70px] leading-[1.1] font-black text-white uppercase tracking-tighter mb-8 xl:whitespace-nowrap">
               Premium <br/>
               Gadget Sales <br/>
               & Repair in <br/>
@@ -177,17 +177,17 @@ const Hero = () => {
               <a href={BRAND.whatsappUrl} target="_blank" rel="noopener noreferrer" className="bg-[#0b132b] text-white px-8 h-[68px] rounded-full font-black text-lg hover:bg-[#e93f45] hover:text-[#0b132b] transition-colors border-2 border-[#0b132b] flex items-center gap-3 w-full sm:w-auto justify-center uppercase shadow-lg">
                 Chat on Whatsapp <ArrowRight size={20} className="text-current" />
               </a>
-              <div className="flex flex-col items-center sm:items-start gap-2 w-full sm:w-auto">
+              <div className="flex flex-col items-center gap-2 w-full sm:w-auto">
                 <button 
                   onClick={() => {
                      const evt = new CustomEvent('open-chat');
                      window.dispatchEvent(evt);
                   }}
-                  className="flex items-center justify-center gap-2 bg-[#0b132b] hover:bg-white hover:text-[#0b132b] text-white px-8 py-4 rounded-full font-black text-lg transition-colors border-2 border-[#0b132b] shadow-md uppercase tracking-wider w-full sm:w-auto"
+                  className="flex items-center justify-center gap-2 bg-[#0b132b] hover:bg-[#e93f45] hover:text-[#0b132b] text-white px-8 h-[68px] rounded-full font-black text-lg transition-colors border-2 border-[#0b132b] shadow-md uppercase tracking-wider w-full sm:w-auto"
                 >
                   AI RECEPTIONIST <Bot size={24} className="text-current" />
                 </button>
-                <div className="text-white text-xs font-bold tracking-widest px-3 py-1 bg-[#e93f45] rounded-full shadow-sm animate-pulse flex items-center gap-1 w-full justify-center lg:justify-end sm:w-auto lg:pr-4">
+                <div className="text-white text-[11px] sm:text-xs font-bold tracking-widest px-3 py-1 bg-[#e93f45] rounded-full shadow-sm animate-pulse flex items-center gap-1 w-full justify-center sm:w-auto">
                   <span className="w-1.5 h-1.5 bg-white rounded-full"></span> 
                   Skip the wait - instant answers!
                 </div>
@@ -219,7 +219,7 @@ const Hero = () => {
 };
 
 const SectionHeading = ({ top, title, light = false, align = "left" }: any) => (
-  <div className={`mb-14 ${align === "center" ? "flex flex-col items-center text-center" : ""}`}>
+  <div className={`mb-14 flex flex-col items-center text-center ${align === "center" ? "" : "lg:items-start lg:text-left"}`}>
     <div className={`inline-block px-4 py-1 rounded-full border-2 ${light ? 'border-white text-white' : 'border-[#0b132b] text-[#0b132b]'} font-bold text-sm uppercase tracking-widest mb-4`}>
       {top}
     </div>
@@ -243,7 +243,7 @@ const WhyChooseUs = () => {
         <SectionHeading top="Why Choose Us" title="The Kroxx Advantage" align="center" />
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
           {points.map((pt, i) => (
-            <div key={i} className={`bg-white rounded-3xl p-8 border-4 border-[#0b132b] shadow-[8px_8px_0px_0px_#1b6feb] hover:-translate-y-2 transition-transform duration-300`}>
+            <div key={i} className={`bg-white rounded-3xl p-8 border-4 border-[#0b132b] shadow-[8px_8px_0px_0px_#1b6feb] hover:-translate-y-2 transition-transform duration-300 flex flex-col items-center text-center`}>
                <h3 className="text-2xl font-black text-[#0b132b] uppercase tracking-tight mb-3">{pt.title}</h3>
                <p className="text-slate-600 font-medium leading-relaxed">{pt.desc}</p>
             </div>
@@ -267,7 +267,7 @@ const Services = () => {
   return (
     <section id="services" className={`${SECTION_PADDING} ${LIGHT_BG}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading top="What We Do" title="Comprehensive Services" />
+        <SectionHeading top="What We Do" title="Comprehensive Services" align="center" />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {items.map((srv, index) => (
@@ -276,7 +276,7 @@ const Services = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-white border-4 border-[#0b132b] rounded-3xl p-8 hover:-translate-y-2 transition-transform duration-300 shadow-[8px_8px_0px_0px_#1b6feb]"
+              className="bg-white border-4 border-[#0b132b] rounded-3xl p-8 hover:-translate-y-2 transition-transform duration-300 shadow-[8px_8px_0px_0px_#1b6feb] flex flex-col items-center text-center"
             >
               <IconBox icon={srv.icon} className="bg-[#0b132b] text-white mb-6 border-2 border-[#0b132b]" />
               <h3 className="text-2xl font-black text-[#0b132b] uppercase tracking-tight mb-3">{srv.title}</h3>
@@ -304,7 +304,7 @@ const About = () => {
             />
           </div>
 
-          <div className="order-1 lg:order-2">
+          <div className="order-1 lg:order-2 flex flex-col items-center lg:items-start text-center lg:text-left">
             <SectionHeading top="Meet Our Expert" title="Madudim Ikechukwu Kingsley" light />
             
             <p className="text-xl font-black text-[#0b132b] mb-6 leading-relaxed tracking-widest uppercase">
@@ -320,7 +320,7 @@ const About = () => {
               From screen replacements to advanced board repairs and data recovery, we make sure your device is restored properly, the first time.
             </p>
             
-            <div className="flex flex-col gap-4 text-white font-black text-xl">
+            <div className="flex flex-col items-center lg:items-start gap-4 text-white font-black text-xl">
               <div className="flex items-center gap-4">
                 <div className="bg-[#0b132b] rounded-full p-1"><CheckCircle2 className="text-white" size={24} /></div> No guesswork
               </div>
@@ -350,11 +350,11 @@ const HowItWorks = () => {
   return (
     <section id="process" className={`${SECTION_PADDING} ${DARK_BG}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading top="Working Process" title="Transparent Steps" light />
+        <SectionHeading top="Working Process" title="Transparent Steps" light align="center" />
         
-        <div className="grid md:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((step, idx) => (
-            <div key={idx} className="bg-white rounded-3xl p-8 relative border-4 border-[#1b6feb]">
+            <div key={idx} className="bg-white rounded-3xl p-8 relative border-4 border-[#1b6feb] flex flex-col items-center justify-center text-center">
               <div className="absolute -top-6 -right-6 text-8xl font-black text-[#e93f45]/20 leading-none">0{idx + 1}</div>
               <IconBox icon={step.icon} className="bg-[#0b132b] text-white mb-8 w-16 h-16 border-2 border-[#0b132b]" />
               <h4 className="text-2xl font-black text-[#0b132b] uppercase mb-4 leading-none">{step.title}</h4>
@@ -378,7 +378,7 @@ const Reviews = () => {
   return (
     <section id="reviews" className={`${SECTION_PADDING} ${LIGHT_BG}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading top="Testimonials" title="What Clients Say" />
+        <SectionHeading top="Testimonials" title="What Clients Say" align="center" />
         <div className="grid md:grid-cols-3 gap-6">
           {reviews.map((review, idx) => (
             <motion.div 
@@ -393,13 +393,13 @@ const Reviews = () => {
                 {[...Array(5)].map((_, i) => <Star key={i} size={24} className="text-[#1b6feb]" fill="currentColor" />)}
               </div>
               <p className="text-lg font-bold text-[#0b132b] mb-8 leading-relaxed">"{review.text}"</p>
-              <div className="flex justify-between items-end">
-                <div>
-                  <h4 className="text-lg font-black text-[#0b132b] uppercase tracking-wide">{review.name}</h4>
+              <div className="flex flex-col items-center md:items-start text-center md:text-left mt-2">
+                <h4 className="text-lg font-black text-[#0b132b] uppercase tracking-wide mb-3">{review.name}</h4>
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 bg-slate-200 rounded-full overflow-hidden border-2 border-[#0b132b] shrink-0">
+                    <img src={review.img} className="w-full h-full object-cover grayscale" alt={review.name} />
+                  </div>
                   <p className="text-slate-500 font-bold">{review.role}</p>
-                </div>
-                <div className="w-16 h-16 bg-slate-200 rounded-xl overflow-hidden border-2 border-[#0b132b] shrink-0">
-                  <img src={review.img} className="w-full h-full object-cover grayscale" alt={review.name} />
                 </div>
               </div>
             </motion.div>
@@ -427,12 +427,12 @@ const Appointment = () => {
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto items-start mt-12">
           
           {/* Booking Option (Form) */}
-          <div className={`bg-[#1b6feb] rounded-3xl p-8 md:p-10 transform hover:scale-[1.02] transition-transform duration-300 relative`}>
-             <div className="flex items-center gap-4 mb-8">
-               <IconBox icon={Calendar} className="bg-[#0b132b] text-white border-4 border-[#0b132b]" />
+          <div className={`bg-white rounded-3xl p-8 md:p-10 transform hover:scale-[1.02] transition-transform duration-300 relative border-4 border-[#0b132b] shadow-[8px_8px_0px_0px_#1b6feb]`}>
+             <div className="flex flex-col items-center text-center gap-4 mb-8">
+               
                <div>
-                 <h3 className="text-3xl font-black text-white uppercase tracking-tight">Fast Response</h3>
-                 <p className="text-[#60a5fa] font-bold">Secure your priority slot now</p>
+                 <h3 className="text-2xl font-black text-[#0b132b] uppercase tracking-tight">Fast Response</h3>
+                 <p className="text-[#1b6feb] font-bold">Secure your priority slot now</p>
                </div>
              </div>
              
@@ -444,7 +444,7 @@ const Appointment = () => {
                    value={formData.name}
                    onChange={e => setFormData({...formData, name: e.target.value})}
                    placeholder="Your Name" 
-                   className="w-full bg-white/10 text-white placeholder:text-slate-400 px-6 py-4 rounded-xl border-2 border-transparent focus:border-[#e93f45] focus:outline-none font-medium"
+                   className="w-full bg-slate-100 text-[#0b132b] placeholder:text-slate-500 px-6 py-4 rounded-xl border-2 border-slate-200 focus:border-[#e93f45] focus:outline-none font-medium"
                  />
                </div>
                <div>
@@ -454,7 +454,7 @@ const Appointment = () => {
                    value={formData.phone}
                    onChange={e => setFormData({...formData, phone: e.target.value})}
                    placeholder="WhatsApp Number" 
-                   className="w-full bg-white/10 text-white placeholder:text-slate-400 px-6 py-4 rounded-xl border-2 border-transparent focus:border-[#e93f45] focus:outline-none font-medium"
+                   className="w-full bg-slate-100 text-[#0b132b] placeholder:text-slate-500 px-6 py-4 rounded-xl border-2 border-slate-200 focus:border-[#e93f45] focus:outline-none font-medium"
                  />
                </div>
                <div>
@@ -462,7 +462,7 @@ const Appointment = () => {
                    required
                    value={formData.service}
                    onChange={e => setFormData({...formData, service: e.target.value})}
-                   className="w-full bg-[#1e293b] text-white px-6 py-4 rounded-xl border-2 border-transparent focus:border-[#e93f45] focus:outline-none font-medium appearance-none"
+                   className="w-full bg-slate-100 text-[#0b132b] px-6 py-4 rounded-xl border-2 border-slate-200 focus:border-[#e93f45] focus:outline-none font-medium appearance-none"
                  >
                    <option value="Sales of Phones & Laptops">Sales of Phones & Laptops</option>
                    <option value="Screen Repairs">Screen Repairs</option>
@@ -472,22 +472,22 @@ const Appointment = () => {
                    <option value="Other Issues">Other Issues</option>
                  </select>
                </div>
-               <button type="submit" className="flex items-center justify-center gap-2 bg-[#0b132b] hover:bg-white hover:text-[#0b132b] text-white w-full py-5 rounded-full font-black text-lg transition-colors border-2 border-[#0b132b] shadow-md uppercase tracking-wider mt-4">
+               <button type="submit" className="flex items-center justify-center gap-2 bg-[#0b132b] hover:bg-[#e93f45] hover:text-[#0b132b] text-white hover:border-[#e93f45] w-full py-5 rounded-full font-black text-lg transition-colors border-2 border-[#0b132b] shadow-md uppercase tracking-wider mt-4">
                  BOOK ON WHATSAPP <Send size={24} />
                </button>
              </form>
           </div>
 
           {/* Contact & Location */}
-          <div className="bg-white rounded-3xl p-8 md:p-10 border-4 border-[#0b132b] shadow-[8px_8px_0px_0px_#1b6feb]">
+          <div className="bg-white rounded-3xl p-8 md:p-10 border-4 border-[#0b132b] shadow-[8px_8px_0px_0px_#1b6feb] flex flex-col items-center text-center">
             <h3 className="text-2xl font-black text-[#0b132b] uppercase mb-8 pb-4 border-b-2 border-slate-100">
               Direct Contact & Location
             </h3>
             
             <div className="space-y-8">
-              <div className="flex items-start gap-4">
-                 <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center shrink-0 border border-blue-100">
-                   <Phone className="text-[#1b6feb]" size={24} />
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4">
+                 <div className="w-12 h-12 bg-[#0b132b] rounded-full flex items-center justify-center shrink-0">
+                   <Phone className="text-white" size={24} />
                  </div>
                  <div>
                    <h4 className="font-bold text-[#0b132b] mb-1">Call Us Directly</h4>
@@ -497,9 +497,9 @@ const Appointment = () => {
                  </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                 <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center shrink-0 border border-blue-100">
-                   <Mail className="text-[#1b6feb]" size={24} />
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4">
+                 <div className="w-12 h-12 bg-[#0b132b] rounded-full flex items-center justify-center shrink-0">
+                   <Mail className="text-white" size={24} />
                  </div>
                  <div>
                    <h4 className="font-bold text-[#0b132b] mb-1">Email Address</h4>
@@ -509,16 +509,14 @@ const Appointment = () => {
                  </div>
               </div>
               
-              <div className="flex items-start gap-4">
-                 <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center shrink-0 border border-blue-100">
-                   <MapPin className="text-[#1b6feb]" size={24} />
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4">
+                 <div className="w-12 h-12 bg-[#0b132b] rounded-full flex items-center justify-center shrink-0">
+                   <MapPin className="text-white" size={24} />
                  </div>
                  <div>
                    <h4 className="font-bold text-[#0b132b] mb-1">Service Center</h4>
                    <p className="text-lg text-slate-600 font-medium leading-relaxed">
-                     {BRAND.address}
-                     <br/>
-                     {BRAND.city}
+                     {BRAND.address}, {BRAND.city}
                    </p>
                  </div>
               </div>
@@ -541,39 +539,38 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid lg:grid-cols-2 gap-16 mb-20">
-          <div>
+          <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
             <h2 className="text-[50px] md:text-[80px] font-black text-white leading-[0.9] uppercase tracking-tighter mb-8">
-              Let's Fix <br/><span className="text-[#1b6feb]">It Today.</span>
+              Let's Fix <br/><span className="text-white">It Today.</span>
             </h2>
-            <a href={`tel:${BRAND.phone.replace(/\s+/g, '')}`} className="inline-flex items-center justify-center gap-2 bg-[#0b132b] hover:bg-white hover:text-[#0b132b] text-white px-8 py-4 rounded-full font-black text-lg transition-colors border-2 border-[#0b132b] shadow-md uppercase tracking-wider w-fit">
+            <a href={`tel:${BRAND.phone.replace(/\s+/g, '')}`} className="inline-flex items-center justify-center gap-2 bg-[#0b132b] hover:bg-[#e93f45] hover:text-[#0b132b] text-white hover:border-[#e93f45] px-8 py-4 rounded-full font-black text-lg transition-colors border-2 border-[#0b132b] shadow-md uppercase tracking-wider w-fit group">
               <Phone size={24} className="text-[#60a5fa] animate-pulse" /> <span>{BRAND.phoneFormatted}</span>
             </a>
           </div>
           
           <div className="grid sm:grid-cols-2 gap-10">
-            <div className="space-y-6 text-white font-bold">
+            <div className="space-y-6 text-white font-bold flex flex-col items-center lg:items-start text-center lg:text-left">
               <div className="text-[#1b6feb] text-sm font-black uppercase tracking-widest">Location</div>
-              <div className="flex gap-4">
-                <MapPin className="text-[#1b6feb]" size={24} />
+              <div className="flex flex-col md:flex-row items-center gap-4 text-center lg:text-left">
+                <div className="bg-[#0b132b] rounded-full p-2 w-10 h-10 flex flex-col items-center justify-center shrink-0"><MapPin className="text-white" size={20} /></div>
                 <div>
-                  <p>{BRAND.address}</p>
-                  <p>{BRAND.city}</p>
+                  <p>{BRAND.address}, {BRAND.city}</p>
                 </div>
               </div>
-              <div className="flex gap-4">
-                <Clock className="text-[#1b6feb]" size={24} />
+              <div className="flex flex-col md:flex-row items-center gap-4 text-center lg:text-left">
+                <div className="bg-[#0b132b] rounded-full p-2 w-10 h-10 flex flex-col items-center justify-center shrink-0"><Clock className="text-white" size={20} /></div>
                 <p>{BRAND.hours}</p>
               </div>
             </div>
             
-            <div className="space-y-6 text-white font-bold">
+            <div className="space-y-6 text-white font-bold flex flex-col items-center lg:items-start text-center lg:text-left">
               <div className="text-[#1b6feb] text-sm font-black uppercase tracking-widest">Connect</div>
-              <div className="flex gap-4">
-                <MessageCircle className="text-[#1b6feb]" size={24} />
+              <div className="flex flex-col md:flex-row items-center gap-4 text-center lg:text-left">
+                <div className="bg-[#0b132b] rounded-full p-2 w-10 h-10 flex flex-col items-center justify-center shrink-0"><MessageCircle className="text-white" size={20} /></div>
                 <a href={BRAND.whatsappUrl} target="_blank" rel="noopener noreferrer" className="hover:text-[#e93f45] font-extrabold transition-colors">{BRAND.phoneFormatted}</a>
               </div>
-              <div className="flex gap-4">
-                <Mail className="text-[#1b6feb]" size={24} />
+              <div className="flex flex-col md:flex-row items-center gap-4 text-center lg:text-left">
+                <div className="bg-[#0b132b] rounded-full p-2 w-10 h-10 flex flex-col items-center justify-center shrink-0"><Mail className="text-white" size={20} /></div>
                 <a href={`mailto:${BRAND.email}`} className="hover:text-[#e93f45] font-extrabold transition-colors">{BRAND.email}</a>
               </div>
               <div className="flex gap-4 pt-4">
@@ -590,9 +587,9 @@ const Footer = () => {
 
         <div className="w-full h-1 bg-[#1b6feb] mb-8"></div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6 mt-4">
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-end gap-6 mt-4 text-center">
           <Logo />
-          <div className="text-white text-[10px] tracking-wider px-3 py-1 bg-[#0b132b] rounded-full">Cooked by Digital Chukwudi</div>
+          <div className="text-white/80 text-[10px] sm:text-[11px] font-bold tracking-wider pb-1">Cooked by Digital Chukwudi</div>
         </div>
         
       </div>
