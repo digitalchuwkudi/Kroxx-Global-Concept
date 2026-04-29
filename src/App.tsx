@@ -63,6 +63,7 @@ const Navbar = () => {
     { name: 'Services', href: '#services' },
     { name: 'Process', href: '#process' },
     { name: 'Reviews', href: '#reviews' },
+    { name: 'Contact', href: '#appointment' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -132,12 +133,12 @@ const Marquee = () => {
   return (
     <div className="bg-[#0b132b] py-4 border-y-2 border-[#1b6feb] overflow-hidden flex whitespace-nowrap">
       <motion.div 
-        animate={{ x: [0, -1000] }} 
-        transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
-        className="flex items-center gap-8 font-black text-white text-xl md:text-2xl uppercase tracking-widest"
+        animate={{ x: ["0%", "-50%"] }} 
+        transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
+        className="flex shrink-0 items-center gap-8 font-black text-white text-xl md:text-2xl uppercase tracking-widest pl-8 w-max"
       >
-        {Array(8).fill("FAST GADGET REPAIRS • ORIGINAL PARTS • PREMIUM DEVICE SALES • 90-DAY WARRANTY • NATIONWIDE COURIER & SHIPPING • FAST DELIVERY • ").map((text, i) => (
-          <span key={i}>{text}</span>
+        {Array(4).fill("FAST GADGET REPAIRS • ORIGINAL PARTS • PREMIUM DEVICE SALES • 90-DAY WARRANTY • NATIONWIDE COURIER & SHIPPING • FAST DELIVERY • ").map((text, i) => (
+          <span key={i} className="shrink-0">{text}</span>
         ))}
       </motion.div>
     </div>
@@ -195,22 +196,35 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right Content - Hero Image */}
-          <div className="relative w-full h-[500px] md:h-[600px] rounded-[3rem] overflow-hidden border-4 border-[#0b132b] bg-white">
-            <img 
-              src="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=800&q=80" 
-              alt="Technician repairing" 
-              className="w-full h-full object-cover mix-blend-luminosity opacity-90"
+          {/* Right Content - Hero Video */}
+          <motion.div 
+             initial={{ opacity: 0 }}
+             animate={{ opacity: 1 }}
+             transition={{ duration: 0.8, ease: "easeOut" }}
+             className="relative w-full h-[500px] md:h-[600px] rounded-[3rem] overflow-hidden shadow-2xl bg-[#1b6feb]"
+          >
+            <video 
+              src="https://res.cloudinary.com/dx41voszq/video/upload/v1777436411/Transform_broken_phone_to_repaired_202604282107_c9fvlt.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-full object-cover opacity-80 blur-[3px]"
             />
-            {/* Badge Overlay */}
-            <div className="absolute bottom-6 left-6 right-6 bg-white border-2 border-[#0b132b] rounded-3xl p-6 flex items-center justify-between shadow-2xl animate-[bounce_4s_ease-in-out_infinite]">
+            {/* Gradient Overlay left to right */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#1b6feb] via-[#1b6feb]/20 to-transparent pointer-events-none" />
+            
+            {/* Soft Badge Overlay */}
+            <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md rounded-3xl p-6 flex items-center justify-between shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
               <div>
                 <div className="text-4xl font-black text-[#1b6feb]">10k+</div>
-                <div className="text-[#0b132b] font-bold text-sm tracking-widest uppercase">Fixed Gadgets</div>
+                <div className="text-[#0b132b] font-bold text-sm tracking-widest uppercase mt-1">Fixed Gadgets</div>
               </div>
-              <IconBox icon={Wrench} className="bg-[#1b6feb] text-white border border-[#1b6feb]" />
+              <div className="w-14 h-14 rounded-full flex items-center justify-center shrink-0 bg-[#1b6feb] text-white shadow-lg">
+                <Wrench size={24} />
+              </div>
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </div>
@@ -543,9 +557,14 @@ const Footer = () => {
             <h2 className="text-[50px] md:text-[80px] font-black text-white leading-[0.9] uppercase tracking-tighter mb-8">
               Let's Fix <br/><span className="text-white">It Today.</span>
             </h2>
-            <a href={`tel:${BRAND.phone.replace(/\s+/g, '')}`} className="inline-flex items-center justify-center gap-2 bg-[#0b132b] hover:bg-[#e93f45] hover:text-[#0b132b] text-white hover:border-[#e93f45] px-8 py-4 rounded-full font-black text-lg transition-colors border-2 border-[#0b132b] shadow-md uppercase tracking-wider w-fit group">
-              <Phone size={24} className="text-[#60a5fa] animate-pulse" /> <span>{BRAND.phoneFormatted}</span>
-            </a>
+            <div className="flex gap-4 pt-4">
+              <a href={BRAND.twitterUrl} className="w-16 h-16 rounded-full bg-white flex items-center justify-center hover:bg-[#e93f45] hover:text-[#0b132b] transition-colors shadow-lg shadow-black/30 group">
+                <Twitter size={28} className="text-[#0b132b] group-hover:scale-110 transition-transform" />
+              </a>
+              <a href="#" className="w-16 h-16 rounded-full bg-white flex items-center justify-center hover:bg-[#e93f45] hover:text-[#0b132b] transition-colors shadow-lg shadow-black/30 group">
+                <Instagram size={28} className="text-[#0b132b] group-hover:scale-110 transition-transform" />
+              </a>
+            </div>
           </div>
           
           <div className="grid sm:grid-cols-2 gap-10">

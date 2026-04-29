@@ -20,7 +20,7 @@ export const CLIENT_CONFIG = {
   workingHours: "Monday - Saturday (9am - 8pm)",
   
   services: "Sales of Phone & Laptop, Repairs of Phone & Laptop, Sales of Phone Accessories, Screen Repairs, General Laptop Repair, General Phone Repair, Battery Replacements, Diagnostics.",
-  benefits: "Expert Technicians, Fast Turnaround, Genuine Parts, Affordable pricing, 90-Day Warranty.",
+  benefits: "10k+ Fixed Gadgets, Expert Technicians, Lead Technician: Madudim Ikechukwu Kingsley (10 yrs experience), Fast Turnaround (under 2 hours), Genuine OEM Parts, Data Security Guard (privacy guaranteed), Affordable pricing, 90-Day Warranty.",
   process: "1. Device diagnostic 2. Price quote 3. Fast repair/Purchase 4. Device pickup and payment.",
   
   faqs: `
