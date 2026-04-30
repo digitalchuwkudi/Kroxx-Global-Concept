@@ -63,6 +63,7 @@ const Navbar = () => {
     { name: 'Services', href: '#services' },
     { name: 'Process', href: '#process' },
     { name: 'Reviews', href: '#reviews' },
+    { name: 'Contact', href: '#appointment' },
     ];
 
   return (
@@ -195,7 +196,7 @@ const Hero = () => {
           </div>
 
           {/* Right Content - Hero Video */}
-                    <motion.div 
+          <motion.div 
              initial={{ opacity: 0 }}
              animate={{ opacity: 1 }}
              transition={{ duration: 0.8, ease: "easeOut" }}
@@ -208,9 +209,13 @@ const Hero = () => {
               loop
               playsInline
               className="w-full h-full object-cover"
+              style={{
+                maskImage: 'radial-gradient(ellipse 90% 90% at 50% 50%, black 50%, transparent 100%)',
+                WebkitMaskImage: 'radial-gradient(ellipse 90% 90% at 50% 50%, black 30%, transparent 95%)'
+              }}
             />
-            {/* Edge blur overlay using box-shadow inset */}
-            <div className="absolute inset-0 pointer-events-none rounded-[3rem]" style={{ boxShadow: 'inset 0 0 60px 20px #0065ea' }}></div>
+            {/* Edge blur overlay using box-shadow inset for additional depth */}
+            <div className="absolute inset-0 pointer-events-none rounded-[3rem]" style={{ boxShadow: 'inset 0 0 100px 40px #0065ea' }}></div>
           </motion.div>
 
         </div>
