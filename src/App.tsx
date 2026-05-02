@@ -607,9 +607,13 @@ const Footer = () => {
 
         <div className="w-full h-1 bg-[#1b6feb] mb-8"></div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center md:items-end gap-6 mt-4 text-center">
-          <Logo />
-          <div className="text-white/80 text-[10px] sm:text-[11px] font-bold tracking-wider pb-1">Cooked by Digital Chukwudi</div>
+        <div className="flex flex-col items-center justify-center gap-2 mt-4 text-center">
+          <div className="flex flex-col items-center text-center leading-none">
+            <span className="font-black italic tracking-tighter text-2xl md:text-3xl text-white drop-shadow-md uppercase">
+              Kroxx Global Concept
+            </span>
+          </div>
+          <div className="text-white/80 text-[10px] sm:text-[11px] font-bold tracking-wider pt-2 pb-1">Cooked by Digital Chukwudi</div>
         </div>
         
       </div>
