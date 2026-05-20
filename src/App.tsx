@@ -42,12 +42,12 @@ const IconBox = ({ icon: Icon, className = "" }) => (
 
 const Logo = () => (
   <div className="flex items-center gap-3 select-none relative z-10">
-    <img src="https://i.ibb.co/Fqb7DbWQ/Screenshot-20251021-152959-Gallery-removebg-preview.png" alt="Kroxx Logo" className="w-16 h-16 md:w-24 md:h-24 object-contain" />
+    <img src="https://i.ibb.co/Fqb7DbWQ/Screenshot-20251021-152959-Gallery-removebg-preview.png" alt="Kroxx Logo" className="w-12 h-12 md:w-16 md:h-16 object-contain" />
     <div className="flex flex-col leading-none pt-1">
-      <span className="font-black italic tracking-tighter text-2xl md:text-3xl text-white drop-shadow-md">
+      <span className="font-black italic tracking-tighter text-xl md:text-2xl text-white drop-shadow-md">
         KROXX
       </span>
-      <span className="text-[9px] sm:text-[10px] font-bold tracking-[0.2em] text-white uppercase mt-1">
+      <span className="text-[8px] sm:text-[9px] font-bold tracking-[0.2em] text-white uppercase mt-0.5">
         Global Concept
       </span>
     </div>
@@ -69,12 +69,12 @@ const Navbar = () => {
   return (
     <nav className="fixed w-full z-50 top-0 left-0 pt-3 px-4 md:px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="bg-[#1b6feb] rounded-full px-5 py-2 flex justify-between items-center shadow-lg border-2 border-[#0b132b]">
+        <div className="bg-[#1b6feb] rounded-full px-5 py-1.5 flex justify-between items-center shadow-lg border-2 border-[#0b132b]">
           <a href="#home" className="hover:scale-105 transition-transform">
             <Logo />
           </a>
           
-          <div className="hidden lg:flex items-center space-x-8 bg-[#0b132b] px-8 py-3 rounded-full">
+          <div className="hidden lg:flex items-center space-x-6 bg-[#0b132b] px-6 py-2 rounded-full">
             {navLinks.map((link) => (
               <a key={link.name} href={link.href} className="text-sm font-bold text-white hover:bg-[#e93f45] hover:text-[#0b132b] px-3 py-1 -ml-3 rounded-full transition-colors uppercase tracking-wide">
                 {link.name}
@@ -83,8 +83,8 @@ const Navbar = () => {
           </div>
 
           <div className="hidden lg:flex items-center">
-            <a href={`tel:${BRAND.phone.replace(/\s+/g, '')}`} className="flex items-center justify-center gap-2 bg-[#0b132b] hover:bg-[#e93f45] hover:text-[#0b132b] text-white px-8 py-4 rounded-full font-black text-lg transition-colors border-2 border-[#0b132b] shadow-md uppercase tracking-wider group">
-              <Phone size={24} className="text-[#60a5fa] group-hover:text-[#0b132b] animate-pulse" /> <span>{BRAND.phoneFormatted}</span>
+            <a href={`tel:${BRAND.phone.replace(/\s+/g, '')}`} className="flex items-center justify-center gap-2 bg-[#0b132b] hover:bg-[#e93f45] hover:text-[#0b132b] text-white px-6 py-3 rounded-full font-black text-base transition-colors border-2 border-[#0b132b] shadow-md uppercase tracking-wider group">
+              <Phone size={20} className="text-[#60a5fa] group-hover:text-[#0b132b] animate-pulse" /> <span>{BRAND.phoneFormatted}</span>
             </a>
           </div>
 
@@ -147,78 +147,79 @@ const Marquee = () => {
 const Hero = () => {
   return (
     <header id="home" className={`${GRADIENT_BG} pt-32 md:pt-40 pb-16 min-h-screen flex flex-col justify-center`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col items-center gap-12">
           
-          {/* Left Content */}
-          <div className="flex flex-col items-center text-center lg:items-start lg:text-left relative z-10">
-            <div className="bg-[#0b132b] border-2 border-[#0b132b] px-4 py-2 rounded-full flex items-center gap-2 mb-8">
-              <span className="w-3 h-3 rounded-full bg-white animate-pulse"></span>
-              <span className="font-bold text-white text-sm tracking-widest">Available 24 Hours</span>
-            </div>
-            
-            <h1 className="text-[40px] sm:text-[55px] md:text-[70px] leading-[1.1] font-black text-white uppercase tracking-tighter mb-8 xl:whitespace-nowrap">
-              Premium <br/>
-              Gadget Sales <br/>
-              & Repair in <br/>
-              <span className="relative inline-block mt-4 text-white z-10">
-                Abuja
-                <svg className="absolute -inset-6 w-[calc(100%+48px)] h-[calc(100%+48px)] text-[#e93f45] -z-10" viewBox="0 0 200 80" preserveAspectRatio="none" style={{ filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))' }}>
-                  <path d="M25,40 C25,12 175,12 175,40 C175,68 20,68 20,40 C20,32 50,18 90,18" fill="none" stroke="currentColor" strokeWidth="8" strokeLinecap="round" style={{ transform: 'rotate(-4deg)', transformOrigin: 'center' }} />
-                </svg>
-              </span>
-            </h1>
-            
-            <p className="text-lg md:text-xl font-medium text-white/90 mb-10 max-w-lg leading-relaxed">
-              Experience lightning-fast service, genuine parts, and absolute reliability for all your smartphones, laptops, and tech accessories.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 w-full sm:w-auto">
-              <a href={BRAND.whatsappUrl} target="_blank" rel="noopener noreferrer" className="bg-[#0b132b] text-white px-8 h-[68px] rounded-full font-black text-lg hover:bg-[#e93f45] hover:text-[#0b132b] transition-colors border-2 border-[#0b132b] flex items-center gap-3 w-full sm:w-auto justify-center uppercase shadow-lg">
-                Chat on Whatsapp <ArrowRight size={20} className="text-current" />
-              </a>
-              <div className="flex flex-col items-center gap-2 w-full sm:w-auto">
-                <button 
-                  onClick={() => {
-                     const evt = new CustomEvent('open-chat');
-                     window.dispatchEvent(evt);
-                  }}
-                  className="flex items-center justify-center gap-2 bg-[#0b132b] hover:bg-[#e93f45] hover:text-[#0b132b] text-white px-8 h-[68px] rounded-full font-black text-lg transition-colors border-2 border-[#0b132b] shadow-md uppercase tracking-wider w-full sm:w-auto"
-                >
-                  AI RECEPTIONIST <Bot size={24} className="text-current" />
-                </button>
-                <div className="text-white text-[11px] sm:text-xs font-bold tracking-widest px-3 py-1 bg-[#e93f45] rounded-full shadow-sm animate-pulse flex items-center gap-1 w-full justify-center sm:w-auto">
-                  <span className="w-1.5 h-1.5 bg-white rounded-full"></span> 
-                  Skip the wait - instant answers!
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Content - Hero Video */}
-          <motion.div 
-             initial={{ opacity: 0 }}
-             animate={{ opacity: 1 }}
-             transition={{ duration: 0.8, ease: "easeOut" }}
-             className="relative w-full h-[500px] md:h-[600px] rounded-[3rem] overflow-hidden shadow-2xl bg-[#0065ea]"
-          >
+        {/* Top Content - Hero Video */}
+        <motion.div 
+           initial={{ opacity: 0 }}
+           animate={{ opacity: 1 }}
+           transition={{ duration: 0.8, ease: "easeOut" }}
+           className="relative w-full aspect-video rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl bg-[#0065ea] flex items-center justify-center p-0 max-w-4xl mx-auto z-20"
+        >
+          <div className="relative w-full h-full rounded-[2rem] md:rounded-[3rem] overflow-hidden">
             <video 
-              src="https://res.cloudinary.com/dx41voszq/video/upload/v1777440712/Transform_animation_broken_repai__202604282230_lad5pw.mp4"
+              src="https://res.cloudinary.com/dx41voszq/video/upload/v1779288233/Smartphone_opens_exploded_view_a__202605191236_royoqq.mp4"
               autoPlay
               muted
               loop
               playsInline
-              className="w-full h-full object-cover"
+              preload="auto"
+              disablePictureInPicture
+              className="w-full h-full object-cover transform-gpu scale-[1.12]"
               style={{
-                maskImage: 'radial-gradient(ellipse 90% 90% at 50% 50%, black 50%, transparent 100%)',
-                WebkitMaskImage: 'radial-gradient(ellipse 90% 90% at 50% 50%, black 30%, transparent 95%)'
+                willChange: "transform",
               }}
             />
-            {/* Edge blur overlay using box-shadow inset for additional depth */}
-            <div className="absolute inset-0 pointer-events-none rounded-[3rem]" style={{ boxShadow: 'inset 0 0 100px 40px #0065ea' }}></div>
-          </motion.div>
+            {/* Edge blur overlay to soften the boundaries of the video to blend seamlessly and hide the watermark */}
+            <div className="absolute inset-0 pointer-events-none rounded-[2rem] md:rounded-[3rem]" style={{ boxShadow: 'inset 0 0 120px 60px #0065ea' }}></div>
+          </div>
+        </motion.div>
 
+        {/* Bottom Content */}
+        <div className="flex flex-col items-center text-center relative z-10 w-full max-w-3xl">
+          <div className="bg-[#0b132b] border-2 border-[#0b132b] px-4 py-2 rounded-full flex items-center gap-2 mb-8">
+            <span className="w-3 h-3 rounded-full bg-white animate-pulse"></span>
+            <span className="font-bold text-white text-sm tracking-widest">Available 24 Hours</span>
+          </div>
+          
+          <h1 className="text-[40px] sm:text-[55px] md:text-[65px] leading-[1.1] font-black text-white uppercase tracking-tighter mb-8">
+            Premium <br className="hidden sm:block" />
+            Gadget Sales <br className="hidden sm:block" />
+            & Repair in <br className="hidden sm:block" />
+            <span className="relative inline-block mt-2 sm:mt-4 text-white z-10 w-fit mx-auto">
+              Abuja
+              <svg className="absolute -inset-6 w-[calc(100%+48px)] h-[calc(100%+48px)] text-[#e93f45] -z-10" viewBox="0 0 200 80" preserveAspectRatio="none" style={{ filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))' }}>
+                <path d="M25,40 C25,12 175,12 175,40 C175,68 20,68 20,40 C20,32 50,18 90,18" fill="none" stroke="currentColor" strokeWidth="8" strokeLinecap="round" style={{ transform: 'rotate(-4deg)', transformOrigin: 'center' }} />
+              </svg>
+            </span>
+          </h1>
+          
+          <p className="text-lg md:text-xl font-medium text-white/90 mb-10 max-w-lg mx-auto leading-relaxed">
+            Experience lightning-fast service, genuine parts, and absolute reliability for all your smartphones, laptops, and tech accessories.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+            <a href={BRAND.whatsappUrl} target="_blank" rel="noopener noreferrer" className="bg-[#0b132b] text-white px-8 h-[68px] rounded-full font-black text-lg hover:bg-[#e93f45] hover:text-[#0b132b] transition-colors border-2 border-[#0b132b] flex items-center gap-3 w-full sm:w-auto justify-center uppercase shadow-lg">
+              Chat on Whatsapp <ArrowRight size={20} className="text-current" />
+            </a>
+            <div className="flex flex-col items-center gap-2 w-full sm:w-auto">
+              <button 
+                onClick={() => {
+                   const evt = new CustomEvent('open-chat');
+                   window.dispatchEvent(evt);
+                }}
+                className="flex items-center justify-center gap-2 bg-[#0b132b] hover:bg-[#e93f45] hover:text-[#0b132b] text-white px-8 h-[68px] rounded-full font-black text-lg transition-colors border-2 border-[#0b132b] shadow-md uppercase tracking-wider w-full sm:w-auto"
+              >
+                AI RECEPTIONIST <Bot size={24} className="text-current" />
+              </button>
+              <div className="text-white text-[11px] sm:text-xs font-bold tracking-widest px-3 py-1 bg-[#e93f45] rounded-full shadow-sm animate-pulse flex items-center gap-1 w-full justify-center sm:w-auto">
+                <span className="w-1.5 h-1.5 bg-white rounded-full"></span> 
+                Skip the wait - instant answers!
+              </div>
+            </div>
+          </div>
         </div>
+
       </div>
     </header>
   );
