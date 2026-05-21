@@ -198,11 +198,11 @@ const Hero = () => {
             Experience lightning-fast service, genuine parts, and absolute reliability for all your smartphones, laptops, and tech accessories.
           </p>
           
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-8 w-full mt-4 pb-8 md:pb-12">
             <a href={BRAND.whatsappUrl} target="_blank" rel="noopener noreferrer" className="bg-[#0b132b] text-white px-8 h-[68px] rounded-full font-black text-lg hover:bg-[#e93f45] hover:text-[#0b132b] transition-colors border-2 border-[#0b132b] flex items-center gap-3 w-full sm:w-auto justify-center uppercase shadow-lg">
               Chat on Whatsapp <ArrowRight size={20} className="text-current" />
             </a>
-            <div className="flex flex-col items-center gap-2 w-full sm:w-auto">
+            <div className="relative w-full sm:w-auto">
               <button 
                 onClick={() => {
                    const evt = new CustomEvent('open-chat');
@@ -212,7 +212,7 @@ const Hero = () => {
               >
                 AI RECEPTIONIST <Bot size={24} className="text-current" />
               </button>
-              <div className="text-white text-[11px] sm:text-xs font-bold tracking-widest px-3 py-1 bg-[#e93f45] rounded-full shadow-sm animate-pulse flex items-center gap-1 w-full justify-center sm:w-auto">
+              <div className="absolute -bottom-7 sm:-bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap text-white text-[10px] font-bold tracking-widest px-3 py-1 bg-[#e93f45] rounded-full shadow-sm animate-pulse flex items-center gap-1 z-10">
                 <span className="w-1.5 h-1.5 bg-white rounded-full"></span> 
                 Skip the wait - instant answers!
               </div>
@@ -305,9 +305,9 @@ const About = () => {
           <div className="order-2 lg:order-1 relative">
             <div className="absolute inset-0 bg-[#0b132b] rounded-3xl translate-x-4 translate-y-4"></div>
             <img 
-              src="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=800&q=80" 
+              src="https://i.ibb.co/1fdCLhfx/make-it-have-black-gray-202605210330.jpg" 
               alt="Master Technician" 
-              className="relative z-10 w-full h-[600px] object-cover rounded-3xl border-4 border-[#0b132b] grayscale mix-blend-multiply"
+              className="relative z-10 w-full h-[600px] object-cover rounded-3xl border-4 border-[#0b132b] mix-blend-multiply"
             />
           </div>
 
