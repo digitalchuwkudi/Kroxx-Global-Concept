@@ -230,7 +230,7 @@ const SectionHeading = ({ top, title, light = false, align = "left" }: any) => (
     <div className={`inline-block px-4 py-1 rounded-full border-2 ${light ? 'border-white text-white' : 'border-[#0b132b] text-[#0b132b]'} font-bold text-sm uppercase tracking-widest mb-4`}>
       {top}
     </div>
-    <h2 className={`text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none ${light ? 'text-white' : 'text-[#0b132b]'}`}>
+    <h2 className={`text-3xl md:text-5xl font-black uppercase tracking-tighter leading-none ${light ? 'text-white' : 'text-[#0b132b]'}`}>
       {title}
     </h2>
   </div>
@@ -263,12 +263,12 @@ const WhyChooseUs = () => {
 
 const Services = () => {
   const items = [
-    { title: 'Sales of Phones & Laptops', icon: ShoppingCart, desc: 'Premium, new and refurbished devices including Apple, HP, Samsung, Dell, Lenovo, Tecno, and more top brands.' },
-    { title: 'Screen Repairs', icon: Zap, desc: 'Fast, high-quality display replacements for top brands.' },
-    { title: 'Diagnostics', icon: Wrench, desc: 'Thorough testing and cleaning of internal logic boards.' },
-    { title: 'Battery Specialists', icon: Battery, desc: 'High-capacity, genuine battery installations to restore peak power.' },
-    { title: 'Hardware Upgrades', icon: HardDrive, desc: 'Memory expansion, storage SSD swaps, and performance boosts.' },
-    { title: 'Accessories', icon: Smartphone, desc: 'High-quality chargers, cases, screen protectors, and audio gear.' },
+    { title: 'Sales of Phones & Laptops', icon: ShoppingCart, img: 'https://i.ibb.co/nM6ZgSgR/SALES-OF-PHONES-LAPTOPS.jpg', desc: 'Premium, new and refurbished devices including Apple, HP, Samsung, Dell, Lenovo, Tecno, and more top brands.' },
+    { title: 'Screen Repairs', icon: Zap, img: 'https://i.ibb.co/svfwNx4w/screen.jpg', desc: 'Fast, high-quality display replacements for top brands.' },
+    { title: 'Diagnostics', icon: Wrench, img: 'https://i.ibb.co/sdvM4WdM/diagnositic.jpg', desc: 'Thorough testing and cleaning of internal logic boards.' },
+    { title: 'Battery Specialists', icon: Battery, img: 'https://i.ibb.co/BKchFSnW/battery.jpg', desc: 'High-capacity, genuine battery installations to restore peak power.' },
+    { title: 'Hardware Upgrades', icon: HardDrive, img: 'https://i.ibb.co/yFJRLtV8/hardware-upgrade.jpg', desc: 'Memory expansion, storage SSD swaps, and performance boosts.' },
+    { title: 'Accessories', icon: Smartphone, img: 'https://i.ibb.co/0yqcbr20/accessories.jpg', desc: 'High-quality chargers, cases, screen protectors, and audio gear.' },
   ];
 
   return (
@@ -283,11 +283,14 @@ const Services = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-white border-4 border-[#0b132b] rounded-3xl p-8 hover:-translate-y-2 transition-transform duration-300 shadow-[8px_8px_0px_0px_#1b6feb] flex flex-col items-center text-center"
+              className="bg-white border-4 border-[#0b132b] rounded-3xl overflow-hidden hover:-translate-y-2 transition-transform duration-300 shadow-[8px_8px_0px_0px_#1b6feb] flex flex-col h-full"
             >
-              <IconBox icon={srv.icon} className="bg-[#0b132b] text-white mb-6 border-2 border-[#0b132b]" />
-              <h3 className="text-2xl font-black text-[#0b132b] uppercase tracking-tight mb-3">{srv.title}</h3>
-              <p className="text-slate-600 font-medium leading-relaxed">{srv.desc}</p>
+              <img src={srv.img} alt={srv.title} className="w-full h-48 md:h-56 object-cover border-b-4 border-[#0b132b]" />
+              <div className="p-6 md:p-8 flex flex-col flex-grow items-center text-center">
+                <IconBox icon={srv.icon} className="bg-[#0b132b] text-white -mt-14 mb-4 border-2 border-[#0b132b] relative z-10 shrink-0" />
+                <h3 className="text-xl md:text-2xl font-black text-[#0b132b] uppercase tracking-tight mb-3">{srv.title}</h3>
+                <p className="text-slate-600 font-medium leading-relaxed flex-grow">{srv.desc}</p>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -305,9 +308,9 @@ const About = () => {
           <div className="order-2 lg:order-1 relative">
             <div className="absolute inset-0 bg-[#0b132b] rounded-3xl translate-x-4 translate-y-4"></div>
             <img 
-              src="https://i.ibb.co/1fdCLhfx/make-it-have-black-gray-202605210330.jpg" 
+              src="https://i.ibb.co/wZpHWG9N/make-it-have-black-gray-202605210330-jpeg-202605240657.jpg" 
               alt="Master Technician" 
-              className="relative z-10 w-full h-[600px] object-cover rounded-3xl border-4 border-[#0b132b] mix-blend-multiply"
+              className="relative z-10 w-full h-[600px] object-cover rounded-3xl border-4 border-[#0b132b]"
             />
           </div>
 
