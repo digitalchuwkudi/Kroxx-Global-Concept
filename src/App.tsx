@@ -103,21 +103,21 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-[100] bg-[#1b6feb] flex flex-col p-6"
+            className="fixed inset-0 z-[100] bg-[#1b6feb] flex flex-col p-6 overflow-y-auto"
           >
-            <div className="flex justify-between items-center mb-12">
+            <div className="flex justify-between items-center mb-6 md:mb-4 shrink-0">
               <Logo />
               <button onClick={() => setIsMobileMenuOpen(false)} className="p-3 bg-[#0b132b] rounded-full text-white">
                 <X size={28} />
               </button>
             </div>
-            <div className="flex flex-col gap-4 md:gap-6 text-center">
+            <div className="flex flex-col gap-2 md:gap-1.5 text-center mt-4 md:mt-0 flex-grow justify-center pb-6">
               {navLinks.map((link) => (
-                <a key={link.name} href={link.href} onClick={() => setIsMobileMenuOpen(false)} className="text-xl md:text-2xl font-black text-white hover:bg-[#e93f45] hover:text-[#0b132b] px-4 py-2 rounded-full uppercase tracking-tighter">
+                <a key={link.name} href={link.href} onClick={() => setIsMobileMenuOpen(false)} className="text-xl md:text-xl font-black text-white hover:bg-[#e93f45] hover:text-[#0b132b] px-4 py-2 md:py-1.5 rounded-full uppercase tracking-tighter">
                   {link.name}
                 </a>
               ))}
-              <a href={`tel:${BRAND.phone.replace(/\s+/g, '')}`} onClick={() => setIsMobileMenuOpen(false)} className="mt-8 mx-auto flex items-center justify-center gap-2 bg-[#0b132b] hover:bg-[#e93f45] hover:text-[#0b132b] text-white px-8 py-4 rounded-full font-black text-lg transition-colors border-2 border-[#0b132b] shadow-md uppercase tracking-wider w-full max-w-sm group">
+              <a href={`tel:${BRAND.phone.replace(/\s+/g, '')}`} onClick={() => setIsMobileMenuOpen(false)} className="mt-4 md:mt-4 mx-auto flex items-center justify-center gap-2 bg-[#0b132b] hover:bg-[#e93f45] hover:text-[#0b132b] text-white px-8 py-3 md:py-2.5 rounded-full font-black text-lg transition-colors border-2 border-[#0b132b] shadow-md uppercase tracking-wider w-full max-w-sm group shrink-0">
                 <Phone size={24} className="text-[#60a5fa] group-hover:text-[#0b132b] animate-pulse" /> <span>{BRAND.phoneFormatted}</span>
               </a>
             </div>
